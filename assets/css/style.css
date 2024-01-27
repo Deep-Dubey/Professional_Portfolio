@@ -14606,3 +14606,34 @@ body.white-version {
   color: var(--color-white) !important; }
 
 /*# sourceMappingURL=../maps/style.css.map */
+.bounce-Contact > img{
+  animation: bounce 0.5s; 
+  animation-direction: alternate; 
+  animation-timing-function: cubic-bezier(.5, 0.05, 1, .5); 
+  animation-iteration-count: infinite; 
+}
+
+@keyframes bounce { 
+  from { 
+      transform: translate3d(0, 0, 0); 
+  } 
+  to { 
+      transform: translate3d(0, 200px, 0); 
+  } 
+} 
+
+.inner > img {
+  animation: zoom-in-zoom-out 1s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
