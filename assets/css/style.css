@@ -14637,3 +14637,8 @@ body.white-version {
     transform: scale(1, 1);
   }
 }
+
+.inner > img {
+  border-radius: 50%;
+  box-shadow: 5px 5px 5px 5px rgb(191, 61, 61) ;
+}
