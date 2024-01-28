@@ -13,7 +13,7 @@ const playground = document.getElementById("playground");
 let smokeGeneratorTimer;
 let smokeObject;
 let smokes = [];
-const smokeLife = 2000;
+const smokeLife = 3000;
 
 function loadImage() {
   return new Promise((resolve, reject) => {
@@ -78,6 +78,10 @@ window.onload = () => {
     smokeEater();
   });
 };
+
+
+
+
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;

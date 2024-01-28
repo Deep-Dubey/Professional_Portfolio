@@ -14685,7 +14685,7 @@ body {
     background: #1b1818;
     .smoke {
       bottom: -200px;
-      background: url(http://www.blog.jonnycornwell.com/wp-content/uploads/2012/07/Smoke10.png)
+      background: url(https://purepng.com/public/uploads/medium/11498493926al9na5mjsadbdcsec0zdj5w0trgalrk8rbij9dnauabhltd9tevimt4iq6ci1jnevfs4qw9uihdgacaocinhgawmq0ndgognlftm.png)
         transparent
         no-repeat
         0
@@ -14726,6 +14726,8 @@ body {
     transform: scale(3) rotateZ(20deg);
   }
 }
+
+
 
 /* .trail {  */
   /* position: absolute;
