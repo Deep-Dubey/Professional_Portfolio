@@ -14646,15 +14646,16 @@ body.white-version {
 @keyframes zoom-in-zoom-out {
   0% {
     transform: scale(1, 1);
-    box-shadow: 1px 1px 1px 1px rgb(191, 61, 61) ;
+    box-shadow: 2px 2px 2px 3px rgb(191, 0, 255) ;
   }
   50% {
     transform: scale(1.2, 1.2);
-    box-shadow: 5px 5px 5px 5px rgb(191, 61, 61) ;
+    background-color: rgb(79, 23, 175);
+    box-shadow: 5px 5px 5px 7px rgb(0, 255, 0) ;
   }
   100% {
     transform: scale(1, 1);
-    box-shadow: 1px 1px 1px 1px rgb(191, 61, 61) ;
+    box-shadow: 1px 1px 1px 3px rgb(221, 0, 255) ;
   }
 }
 
@@ -14732,3 +14733,4 @@ body {
   border-radius: 3px;
   background: teal; */
 /* } */
+
