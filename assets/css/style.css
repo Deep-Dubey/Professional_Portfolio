@@ -14644,3 +14644,12 @@ body.white-version {
 .inner > img {
   border-radius: 50%;
 }
+
+body > #scroll_progress_bar{
+  position: fixed;
+  top: 0;
+  width: 0%;
+  height: 5px;
+  background: #ff0000;
+  z-index: 10000;
+}
