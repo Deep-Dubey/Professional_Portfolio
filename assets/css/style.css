@@ -14653,3 +14653,65 @@ body > #scroll_progress_bar{
   background: #ff0000;
   z-index: 10000;
 }
+
+body {
+  #playground {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    background: #1b1818;
+    .smoke {
+      bottom: -200px;
+      background: url(http://www.blog.jonnycornwell.com/wp-content/uploads/2012/07/Smoke10.png)
+        transparent
+        no-repeat
+        0
+        0;
+      height: 200px;
+      width: 200px;
+      position: absolute;
+      margin: -100px 0 0 -100px;
+      background-size: contain;
+      opacity: 0;
+      animation-name: smoking;
+      animation-duration: .5s;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: ease-in;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes smoking {
+  0% {
+    opacity: 0.1;
+    bottom: -200px;
+    transform: scale(1) rotateZ(0);
+  }
+  20% {
+    opacity: 1;
+  }
+  90% {
+    bottom: 65%;
+    opacity: 0.8;
+    transform: scale(2.7) rotateZ(18deg);
+  }
+  100% {
+    bottom: 70%;
+    opacity: 0;
+    transform: scale(3) rotateZ(20deg);
+  }
+}
+
+.trail { /* className for the trail elements */
+  position: absolute;
+  height: 6px; width: 6px;
+  border-radius: 3px;
+  background: teal;
+}

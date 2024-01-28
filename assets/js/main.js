@@ -5,6 +5,154 @@ window.addEventListener('scroll', () => {
   const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
   scrollProgress.style.width = `${(scrollTop / height) * 100}%`;
 });
+
+let smokeDensity = 100;
+const imageUrl =
+  "http://www.blog.jonnycornwell.com/wp-content/uploads/2012/07/Smoke10.png";
+const playground = document.getElementById("playground");
+let smokeGeneratorTimer;
+let smokeObject;
+let smokes = [];
+const smokeLife = 2000;
+
+function loadImage() {
+  return new Promise((resolve, reject) => {
+    let Img = new Image();
+    Img.src = imageUrl;
+    Img.onload = resolve;
+    Img.onerror = reject;
+  });
+}
+
+function createSmokeObject() {
+  smokeObject = document.createElement("div");
+  smokeObject.className = "smoke";
+}
+
+function removeSmoke(smokeElement, delay) {
+  setTimeout(function() {
+    smokeElement.remove();
+  }, delay + smokeLife);
+}
+
+/**
+ * Start Stop Smoke Generator
+ */
+function smokeSwitch(status) {
+  smokeGeneratorTimer = setInterval(() => {
+    smokeGenerator(getRandomInt(1, smokeDensity));
+  }, smokeLife);
+}
+
+function smokeGenerator(smokeDensity) {
+  let smokeClone, delay;
+  for (let i = 0; i < smokeDensity; i++) {
+    smokeClone = smokeObject.cloneNode();
+    smokeClone.style.left = getRandomInt(0, 100) + '%';
+    delay = getRandomInt(0, smokeLife);
+    smokeClone.style.animationDelay = delay + 'ms';
+    smokeClone.style.animationDuration = smokeLife + 'ms';
+    playground.appendChild(smokeClone);
+    smokes.push(smokeClone)
+    // removeSmoke(smokeClone, delay);
+  }
+}
+
+function smokeEater() {
+  console.log('Smokes: ', smokes.length );
+  for (var index = 0; index < smokes.length; index++) {
+    if(smokes[index].offsetTop < 0) {
+      smokes[index].remove();
+      smokes.splice(index, 0);
+    }  
+  }
+  window.requestAnimationFrame(smokeEater);
+}
+
+window.onload = () => {
+  console.info('Page Loaded');
+  loadImage().then(() => {
+    console.info('Image Loaded');
+    createSmokeObject();
+    smokeSwitch();
+    smokeEater();
+  });
+};
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// dots is an array of Dot objects,
+// mouse is an object used to track the X and Y position
+   // of the mouse, set with a mousemove event listener below
+   var dots = [],
+   mouse = {
+     x: 0,
+     y: 0
+   };
+
+// The Dot object used to scaffold the dots
+var Dot = function() {
+ this.x = 0;
+ this.y = 0;
+ this.node = (function(){
+   var n = document.createElement("div");
+   n.className = "trail";
+   document.body.appendChild(n);
+   return n;
+ }());
+};
+// The Dot.prototype.draw() method sets the position of 
+ // the object's <div> node
+Dot.prototype.draw = function() {
+ this.node.style.left = this.x + "px";
+ this.node.style.top = this.y + "px";
+};
+
+// Creates the Dot objects, populates the dots array
+for (var i = 0; i < 12; i++) {
+ var d = new Dot();
+ dots.push(d);
+}
+
+// This is the screen redraw function
+function draw() {
+ // Make sure the mouse position is set everytime
+   // draw() is called.
+ var x = mouse.x,
+     y = mouse.y;
+ 
+ // This loop is where all the 90s magic happens
+ dots.forEach(function(dot, index, dots) {
+   var nextDot = dots[index + 1] || dots[0];
+   
+   dot.x = x;
+   dot.y = y;
+   dot.draw();
+   x += (nextDot.x - dot.x) * .6;
+   y += (nextDot.y - dot.y) * .6;
+
+ });
+}
+
+addEventListener("mousemove", function(event) {
+ //event.preventDefault();
+ mouse.x = event.pageX;
+ mouse.y = event.pageY;
+});
+
+// animate() calls draw() then recursively calls itself
+ // everytime the screen repaints via requestAnimationFrame().
+function animate() {
+ draw();
+ requestAnimationFrame(animate);
+}
+
+// And get it started by calling animate().
+animate();
+
+
 (function ($) {
     'use strict';
 
