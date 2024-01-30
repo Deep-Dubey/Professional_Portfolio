@@ -14727,3 +14727,8 @@ body {
     transform: scale(3) rotateZ(20deg);
   }
 }
+
+.image > img:hover{
+  transform: scale(1.1);
+  transition: all .5s linear;
+}
