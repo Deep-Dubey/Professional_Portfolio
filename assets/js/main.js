@@ -6,14 +6,14 @@ window.addEventListener('scroll', () => {
   scrollProgress.style.width = `${(scrollTop / height) * 100}%`;
 });
 
-let smokeDensity = 100;
+let smokeDensity = 30;
 const imageUrl =
   "http://www.blog.jonnycornwell.com/wp-content/uploads/2012/07/Smoke10.png";
 const playground = document.getElementById("playground");
 let smokeGeneratorTimer;
 let smokeObject;
 let smokes = [];
-const smokeLife = 3000;
+const smokeLife = 3500;
 
 function loadImage() {
   return new Promise((resolve, reject) => {
