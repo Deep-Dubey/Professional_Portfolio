@@ -14732,3 +14732,55 @@ body {
   transform: scale(1.1);
   transition: all .5s linear;
 }
+/* Email */
+form {
+  max-width: 400px;
+  margin: auto;
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+label {
+  margin-bottom: 8px;
+  display: block;
+}
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #0056b3;
+}
+/* Rotate */
+
+/* Star Animation */
+@keyframes starAnimation {
+  from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+  }
+  to {
+      opacity: 0;
+      transform: translateY(-50px) scale(1);
+  }
+}
+
+.star {
+  position: absolute;
+  background-color: #f9d71c;
+  border-radius: 50%;
+  animation: starAnimation 1s linear infinite;
+  pointer-events: none;
+}
