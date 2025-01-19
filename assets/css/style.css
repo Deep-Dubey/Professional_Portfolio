@@ -14784,11 +14784,11 @@ button:hover {
 @keyframes starAnimation {
   from {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0) scale(0.5);
   }
   to {
       opacity: 0;
-      transform: translateY(-50px) scale(1);
+      transform: translateY(-50px) scale(0.5);
   }
 }
 
@@ -14796,6 +14796,6 @@ button:hover {
   position: absolute;
   background-color: #f9d71c;
   border-radius: 50%;
-  animation: starAnimation 1s linear infinite;
+  animation: starAnimation 2s linear infinite;
   pointer-events: none;
 }
